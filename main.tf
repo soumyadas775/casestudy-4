@@ -107,6 +107,8 @@ resource "aws_instance" "ec2_a" {
   subnet_id     = aws_subnet.subnet_a.id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
+  key_name               = "jumpbox"
+  associate_public_ip_address = true
   user_data              = file("ec2-userdata.sh")
   tags = {
     Name = "EC2-A"
@@ -119,6 +121,8 @@ resource "aws_instance" "ec2_b" {
   subnet_id     = aws_subnet.subnet_b.id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
+  key_name               = "jumpbox"
+  associate_public_ip_address = true
   user_data              = file("ec2-userdata.sh")
   tags = {
     Name = "EC2-B"
@@ -131,6 +135,8 @@ resource "aws_instance" "ec2_c" {
   subnet_id     = aws_subnet.subnet_c.id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
+  key_name               = "jumpbox"
+  associate_public_ip_address = true
   user_data              = file("ec2-userdata.sh")
   tags = {
     Name = "EC2-C"
